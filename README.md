@@ -1,13 +1,3 @@
-Sure! Here’s the complete README.md content saved as a downloadable Markdown file.
-
-⸻
-
-📄 README.md for notify-hub
-
-You can copy and paste this into your project’s root directory as README.md, or click here to download as a raw Markdown file.
-
-⸻
-
 # 📣 @EmirTech-ch/notify-hub
 
 > A tiny, TypeScript-powered **notification hub** using the **Observer**, **Singleton**, and **IIFE** design patterns.
@@ -98,63 +88,76 @@ hub.send("Only UI will see this");
 
 NotifyHub.getInstance(): NotifyHubInstance
 
-Returns the singleton notification hub.
+//  Returns the singleton notification hub.
 
 
 notifyHub.subscribe(name: string, callback: (msg: string) => void): Observer
 
-Subscribes a new listener to receive messages.
-	•	name — an identifier (useful for debugging)
-	•	callback — function to call with each message
+// Subscribes a new listener to receive messages.
+	// •	name — an identifier (useful for debugging)
+	// •	callback — function to call with each message
 
-Returns an Observer object you can use to unsubscribe.
+// Returns an Observer object you can use to unsubscribe.
 
 
 notifyHub.send(message: string): void
 
-Broadcasts a message to all subscribers.
+// Broadcasts a message to all subscribers.
 
 
 notifyHub.unsubscribe(observer: Observer): void
 
-Stops notifying a previously subscribed observer.
+// Stops notifying a previously subscribed observer.
 
 ```
 
 ---
 
-🏗️ Design Patterns Used
+### 🏗️ Design Patterns Used
 
-Pattern Role in NotifyHub
-Singleton One shared instance across the app
-Observer Allows parts of app to subscribe/unsubscribe
-IIFE Encapsulates internal logic & state
+- **Singleton**: Ensures only one instance of NotifyHub exists.
+- **Observer**: Allows multiple components to subscribe to notifications.
+- **IIFE**: Encapsulates the logic and state, preventing global scope pollution.
+- **Encapsulation**: Keeps the internal state private, exposing only necessary methods.
+- **TypeScript**: Provides type safety and autocompletion.
+- **Framework-agnostic**: Works with any JavaScript framework or library.
+- **Lightweight**: Minimal footprint, no dependencies.
+- **Easy to use**: Simple API for subscribing and sending messages.
+- **Flexible**: Can be extended for more complex use cases.
+- **Performance**: Efficient message dispatching and subscription management.
+- **Debugging**: Each subscription can be identified by a name for easier debugging.
 
-⸻
+---
 
-🛡️ TypeScript Support
+### 🛡️ TypeScript Support
 
-Full types are included automatically — no need to install anything extra.
+```javascript
+// Full types are included automatically — no need to install anything extra.
 
 const hub = NotifyHub.getInstance();
+
 hub.subscribe("Debugger", (msg: string) => {
 console.log(msg);
 });
 
-⸻
+hub.send("Hello, TypeScript!");
+```
 
-📁 File Structure (Bundled)
+---
 
+### 📁 File Structure (Bundled)
+
+```plaintext
 dist/
 ├── notify-hub.umd.js # For use in browser via <script>
 ├── notify-hub.esm.js # For ES module import
 ├── index.d.ts # Type definitions
+```
 
-⸻
+### 🌍 Browser Usage (UMD)
 
-🌍 Browser Usage (UMD)
-
-You can include the UMD build directly in a <script> tag:
+```javascript
+// You can include the UMD build directly in a <script> tag:
 
 <script src="notify-hub.umd.js"></script>
 <script>
@@ -163,28 +166,10 @@ You can include the UMD build directly in a <script> tag:
   hub.send("You're awesome!");
 </script>
 
-⸻
-
-🤝 Contributing
-
-Contributions welcome! If you’d like to:
-• Improve performance
-• Add queueing / message history
-• Add TypeScript generics
-• Write framework-specific bindings
-
-…feel free to open an issue or PR.
-
-⸻
-
-🪪 License
-
-MIT © Emir Kovacevic
-
-⸻
-
-💬 Questions or Ideas?
-
-Open an issue or reach out — always happy to collaborate on fun dev tools!
+```
 
 ---
+
+### 🪪 License
+
+MIT © Emir Kovacevic
