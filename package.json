@@ -9,9 +9,9 @@
     "build": "tsc && rollup -c"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "author": "emirtech",
+  "license": "MIT",
+  "description": "A lightweight JS notification system using Singleton + Observer, wrapped with IIFE (or optionally ES modules).",
   "devDependencies": {
     "@eslint/js": "^9.24.0",
     "@rollup/plugin-node-resolve": "^16.0.1",
