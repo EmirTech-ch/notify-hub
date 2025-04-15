@@ -36,11 +36,13 @@ Or using yarn:
 
 yarn add @EmirTech-ch/notify-hub
 
+```
 
+---
 
-⸻
+## 🚀 Quick Start
 
-🚀 Quick Start
+```javascript
 
 1. Get the Singleton instance
 
@@ -62,23 +64,22 @@ notifier.send("Hello all subscribers!");
 
 notifier.unsubscribe(uiObserver);
 
+```
 
+### 🧪 Example
 
-⸻
-
-🧪 Example
-
-import NotifyHub from '@EmirTech-ch/notify-hub';
+```javascript
+import NotifyHub from "@EmirTech-ch/notify-hub";
 
 const hub = NotifyHub.getInstance();
 
 // Observer 1: UI component
-const ui = hub.subscribe("UI", msg => {
+const ui = hub.subscribe("UI", (msg) => {
   console.log("[UI] Message:", msg);
 });
 
 // Observer 2: Logger
-const log = hub.subscribe("Logger", msg => {
+const log = hub.subscribe("Logger", (msg) => {
   console.log("[Logger] Logging:", msg);
 });
 
@@ -87,18 +88,18 @@ hub.send("App initialized!");
 // Later...
 hub.unsubscribe(log);
 hub.send("Only UI will see this");
+```
 
+---
 
+### 📘 API
 
-⸻
-
-📘 API
+```javascript
 
 NotifyHub.getInstance(): NotifyHubInstance
 
 Returns the singleton notification hub.
 
-⸻
 
 notifyHub.subscribe(name: string, callback: (msg: string) => void): Observer
 
@@ -108,28 +109,26 @@ Subscribes a new listener to receive messages.
 
 Returns an Observer object you can use to unsubscribe.
 
-⸻
 
 notifyHub.send(message: string): void
 
 Broadcasts a message to all subscribers.
 
-⸻
 
 notifyHub.unsubscribe(observer: Observer): void
 
 Stops notifying a previously subscribed observer.
 
-⸻
+```
+
+---
 
 🏗️ Design Patterns Used
 
-Pattern	Role in NotifyHub
-Singleton	One shared instance across the app
-Observer	Allows parts of app to subscribe/unsubscribe
-IIFE	Encapsulates internal logic & state
-
-
+Pattern Role in NotifyHub
+Singleton One shared instance across the app
+Observer Allows parts of app to subscribe/unsubscribe
+IIFE Encapsulates internal logic & state
 
 ⸻
 
@@ -139,21 +138,17 @@ Full types are included automatically — no need to install anything extra.
 
 const hub = NotifyHub.getInstance();
 hub.subscribe("Debugger", (msg: string) => {
-  console.log(msg);
+console.log(msg);
 });
-
-
 
 ⸻
 
 📁 File Structure (Bundled)
 
 dist/
-├── notify-hub.umd.js   # For use in browser via <script>
-├── notify-hub.esm.js   # For ES module import
-├── index.d.ts          # Type definitions
-
-
+├── notify-hub.umd.js # For use in browser via <script>
+├── notify-hub.esm.js # For ES module import
+├── index.d.ts # Type definitions
 
 ⸻
 
@@ -168,17 +163,15 @@ You can include the UMD build directly in a <script> tag:
   hub.send("You're awesome!");
 </script>
 
-
-
 ⸻
 
 🤝 Contributing
 
 Contributions welcome! If you’d like to:
-	•	Improve performance
-	•	Add queueing / message history
-	•	Add TypeScript generics
-	•	Write framework-specific bindings
+• Improve performance
+• Add queueing / message history
+• Add TypeScript generics
+• Write framework-specific bindings
 
 …feel free to open an issue or PR.
 
@@ -195,5 +188,3 @@ MIT © Emir Kovacevic
 Open an issue or reach out — always happy to collaborate on fun dev tools!
 
 ---
-
-```
