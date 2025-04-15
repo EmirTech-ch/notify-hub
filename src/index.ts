@@ -1,5 +1,6 @@
 type ObserverCallback = (message: string) => void;
 
+// Observer class that represents an individual observer
 class Observer {
   name: string;
   update: ObserverCallback;
@@ -10,6 +11,7 @@ class Observer {
   }
 }
 
+// Subject class that maintains a list of observers and notifies them of changes
 class Subject {
   private observers: Observer[] = [];
 
@@ -28,9 +30,11 @@ class Subject {
   }
 }
 
+// NotifyHub is a singleton class that allows multiple observers to subscribe to notifications
 const NotifyHub = (function () {
   let instance: ReturnType<typeof createInstance> | null = null;
 
+  // Private constructor
   function createInstance() {
     const subject = new Subject();
 
@@ -49,6 +53,7 @@ const NotifyHub = (function () {
     };
   }
 
+  // Public method to get the singleton instance
   return {
     getInstance: () => {
       if (!instance) {
